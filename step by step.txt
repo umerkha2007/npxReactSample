@@ -1,0 +1,61 @@
+https://nx.dev/packages/react/documents/overview
+*** Create new nx project ***
+1. npm init
+2. npm i @nrwl/cli -g
+Adding Nx to an Existing Monorepo
+Run:
+npx add-nx-to-monorepo@latest
+3. use node 18.3.0
+4. tsc --init (creates tsconfig.json)
+Add baseUrl to tsconfig.json
+{
+"compilerOptions": {
+"baseUrl": "."
+}
+5. vscode nx console extension
+OR
+6. npx create-nx-workspace sample_jest_app
+7. yarn nx list (to view all the available nx plugins)
+8. yarn add @nrwl/react
+npm install typescript --save-dev
+9. npm install -D @nrwl/react
+10. Find all nrwl/react commands run:
+yarn nx list @nrwl/react
+11. --dry-run immitates a command
+
+***Create new React application inside nx project: ***
+12. nx generate @nrwl/react:application sample_react_app
+
+***Run react nx project***
+13. nx run package_name:serve
+OR
+yarn nx run package_name:serve
+Here "serve" can be replaced be any target. You can see the 
+targets in project.json file in the package
+
+--port for port change
+
+14. for Material UI: @meterial-ui/core
+
+15. Go to
+https://nx.dev/packages/react/generators/
+for a list of plugin options for 
+
+Generators provide a way to automate many tasks you regularly 
+perform as part of your development workflow. Whether it is
+ scaffolding out components, features, ensuring libraries are 
+generated and structured in a certain way, or updating your
+ configuration files, generators help you standardize these
+ tasks in a consistent, and predictable manner.
+
+16. nx generate [plugin]:[generator-name] [options]
+nx generate @nrwl/react:component mycmp --project=myapp
+
+17. nx g @nrwl/react:lib ui-shared --directory=sample-react-app
+This will create a shared library through nx
+
+18. Create a component:
+nx g @nrwl/react:component header --project=sample-react-app-ui-shared
+
+19. From tsconfig.base.json we can now copy the path of the 
+component and reuse it 
